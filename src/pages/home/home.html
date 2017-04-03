@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="kittens">
+        Kittens
+      </ion-segment-button>
+      <ion-segment-button value="puppies">
+        Puppies
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="pet">
+
+    <ion-slides *ngSwitchCase="'puppies'">
+      <ion-slide *ngFor="let slide of slides">
+        <h2>Slide {{slide}}</h2>
+        <ion-list>
+          <ion-item *ngFor="let value of values">{{value}}</ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-slides *ngSwitchCase="'kittens'">
+      <ion-slide *ngFor="let slide of slides">
+        <h2>Slide {{slide}}</h2>
+        <ion-list>
+          <ion-item *ngFor="let value of values">{{value}}</ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+</ion-content>
